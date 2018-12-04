@@ -3,6 +3,7 @@ package pl.edu.wat.wcy.jfk.lab1.interpreter;
 import pl.edu.wat.wcy.jfk.lab1.Node;
 import pl.edu.wat.wcy.jfk.lab1.Token;
 import pl.edu.wat.wcy.jfk.lab1.parser.Parser;
+import pl.edu.wat.wcy.jfk.lab1.tokenizer.SecondTokenizer;
 import pl.edu.wat.wcy.jfk.lab1.tokenizer.Tokenizer;
 
 import java.util.ArrayList;
@@ -25,7 +26,7 @@ public class Interpreter {
     }
 
     public void interpret(String text) {
-        Parser parser = new Parser(new Tokenizer(text));
+        Parser parser = new Parser(new SecondTokenizer(text));
 
         Node rootNode = parser.parse();
         switch (rootNode.getToken().getType()) {

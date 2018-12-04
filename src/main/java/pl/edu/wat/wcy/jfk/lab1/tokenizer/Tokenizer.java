@@ -50,7 +50,7 @@ public class Tokenizer implements ITokenizer {
 
     @Override
     public boolean hasNextToken() {
-        return position + 1 >= tokenList.size();
+        return position + 1 < tokenList.size();
     }
 
     private Token.Type getTokenType(String tokenValue) {

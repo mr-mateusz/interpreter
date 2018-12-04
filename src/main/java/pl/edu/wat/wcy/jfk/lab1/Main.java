@@ -16,15 +16,20 @@ public class Main {
         Interpreter interpreter = new Interpreter();
         String text = null;
 
-        while (!EXIT.equals(text)) {
-            System.out.print(PROMPT);
-            text = input.nextLine();
 
+        System.out.print(PROMPT);
+        if(input.hasNextLine()) {
+            text = input.nextLine();
+        }
+        while (!EXIT.equals(text)) {
             try {
                 interpreter.interpret(text);
             } catch (RuntimeException e) {
                 System.out.println(ERROR);
             }
+            System.out.print(PROMPT);
+            while (!input.hasNextLine()){}
+            text = input.nextLine();
         }
     }
 

@@ -2,12 +2,12 @@ package pl.edu.wat.wcy.jfk.lab1.parser;
 
 import pl.edu.wat.wcy.jfk.lab1.Node;
 import pl.edu.wat.wcy.jfk.lab1.Token;
-import pl.edu.wat.wcy.jfk.lab1.tokenizer.Tokenizer;
+import pl.edu.wat.wcy.jfk.lab1.tokenizer.ITokenizer;
 
 public class Parser {
-    private Tokenizer tokenizer;
+    private ITokenizer tokenizer;
 
-    public Parser(Tokenizer tokenizer) {
+    public Parser(ITokenizer tokenizer) {
         this.tokenizer = tokenizer;
     }
 
