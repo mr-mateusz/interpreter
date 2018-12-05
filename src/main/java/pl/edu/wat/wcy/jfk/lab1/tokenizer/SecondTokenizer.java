@@ -67,6 +67,6 @@ public class SecondTokenizer implements ITokenizer {
 
     @Override
     public boolean hasNextToken() {
-        return listPosition + 1 < tokenList.size();
+        return (listPosition + 1) < tokenList.size();
     }
 }

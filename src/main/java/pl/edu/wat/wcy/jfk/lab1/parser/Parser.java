@@ -14,17 +14,30 @@ public class Parser {
     public Node parse() {
         Token token = tokenizer.getNextToken();
 
+        Node returnNode = null;
         switch (token.getType()) {
             case MOV:
-                return new Node(token, expression(), register());
+                returnNode = new Node(token, expression(), register());
+                break;
             case INT:
-                return new Node(token, interruptNumber(), null);
+                returnNode = new Node(token, interruptNumber(), null);
+                break;
             case PUSH:
-                return new Node(token, expression(), null);
+                returnNode = new Node(token, expression(), null);
+                //if(tokenizer.getCurrentToken().getType() != null) throw new RuntimeException("parse()"); //fixme
+                break;
             case XOR:
-                return new Node(token, expression(), register());
+                returnNode = new Node(token, expression(), register());
+                break;
+            //default:
+            //    throw new RuntimeException("parse()");
         }
-        throw new RuntimeException("parse()");
+        System.out.println(tokenizer.getCurrentToken().getValue()); //fixme
+        if (returnNode == null || tokenizer.hasNextToken()) {
+            System.out.println("Weszlo"); //fixme
+            throw new RuntimeException("parse()");
+        }
+        return returnNode;
     }
 
     private Node interruptNumber() {
