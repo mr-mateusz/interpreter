@@ -24,17 +24,13 @@ public class Parser {
                 break;
             case PUSH:
                 returnNode = new Node(token, expression(), null);
-                //if(tokenizer.getCurrentToken().getType() != null) throw new RuntimeException("parse()"); //fixme
+                if(tokenizer.getCurrentToken().getType() != null) throw new RuntimeException("parse()"); //expression przsuwa tokenizer - zawsze na koncu powinno byc null
                 break;
             case XOR:
                 returnNode = new Node(token, expression(), register());
                 break;
-            //default:
-            //    throw new RuntimeException("parse()");
         }
-        System.out.println(tokenizer.getCurrentToken().getValue()); //fixme
         if (returnNode == null || tokenizer.hasNextToken()) {
-            System.out.println("Weszlo"); //fixme
             throw new RuntimeException("parse()");
         }
         return returnNode;

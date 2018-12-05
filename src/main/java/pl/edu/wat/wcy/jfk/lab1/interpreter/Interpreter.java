@@ -1,10 +1,8 @@
 package pl.edu.wat.wcy.jfk.lab1.interpreter;
 
 import pl.edu.wat.wcy.jfk.lab1.Node;
-import pl.edu.wat.wcy.jfk.lab1.Token;
 import pl.edu.wat.wcy.jfk.lab1.parser.Parser;
 import pl.edu.wat.wcy.jfk.lab1.tokenizer.SecondTokenizer;
-import pl.edu.wat.wcy.jfk.lab1.tokenizer.Tokenizer;
 
 import java.util.ArrayList;
 import java.util.HashMap;

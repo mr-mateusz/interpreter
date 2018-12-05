@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Main {
 
     public static final String EXIT = "exit";
-    public static final String PROMPT = ">";
+    public static final String PROMPT = "";
     public static final String ERROR = "Error";
 
     public static void main(String[] args) {
@@ -18,9 +18,11 @@ public class Main {
 
 
         System.out.print(PROMPT);
-        if(input.hasNextLine()) {
+        if (input.hasNextLine()) {
             text = input.nextLine();
-        }
+        } else
+            text = EXIT;
+
         while (!EXIT.equals(text)) {
             try {
                 interpreter.interpret(text);
@@ -28,8 +30,10 @@ public class Main {
                 System.out.println(ERROR);
             }
             System.out.print(PROMPT);
-            while (!input.hasNextLine()){}
-            text = input.nextLine();
+            if (input.hasNextLine())
+                text = input.nextLine();
+            else
+                text = EXIT;
         }
     }
 
